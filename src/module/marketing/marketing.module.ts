@@ -5,26 +5,21 @@ import { APP_CONFIG } from 'src/common/constant';
 import { LoggerModule } from 'src/logger/logger.module';
 import { DatabaseModule } from 'src/database/database.module';
 import { LoggingInterceptor } from 'src/interceptor/logging.interceptor';
-import { LocationAndSegmentationService } from './location.segmentation.service';
-import { LocationAndSegmentationController } from './location.segmentation.controller';
-import { LocationAndSegmentation } from 'src/entity/location.segmentation.entity';
+import { MarketingService } from './marketing.service';
+import { MarketingController } from './marketing.controller';
+import { Marketing } from 'src/entity/marketing.entity';
 
 @Module({
   imports: [
     DatabaseModule,
-    DatabaseModule.forFeature([LocationAndSegmentation]),
+    DatabaseModule.forFeature([Marketing]),
     JwtModule.register({
       secret: APP_CONFIG.secret,
       signOptions: { expiresIn: APP_CONFIG.expires },
     }),
     LoggerModule,
   ],
-  controllers: [LocationAndSegmentationController],
-  providers: [
-    LocationAndSegmentationService,
-    ResponseHandler,
-    Logger,
-    LoggingInterceptor,
-  ],
+  controllers: [MarketingController],
+  providers: [MarketingService, ResponseHandler, Logger, LoggingInterceptor],
 })
-export class LocationAndSegmentationModule {}
+export class MarketingModule {}
