@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class AuditLog {
+export class LocationAndSegmentation {
   @PrimaryGeneratedColumn()
   id: number;
 }

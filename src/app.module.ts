@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { AuditLogModule } from './modules/audit-log/audit.log.module';
+import { LocationAndSegmentationModule } from './module/location-segmentation/location.segmentation.module';
 
 @Module({
-  imports: [AuditLogModule],
+  imports: [LocationAndSegmentationModule],
   controllers: [AppController],
   providers: [AppService],
 })

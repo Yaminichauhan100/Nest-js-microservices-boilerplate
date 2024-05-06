@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { EntityClassOrSchema } from '@nestjs/typeorm/dist/interfaces/entity-class-or-schema.type';
 import { APP_CONFIG } from 'src/common/constant';
-import { AuditLog } from 'src/entity/audit.log.entity';
+import { LocationAndSegmentation } from 'src/entity/location.segmentation.entity';
 
 @Module({
   imports: [
@@ -14,7 +14,7 @@ import { AuditLog } from 'src/entity/audit.log.entity';
         password: APP_CONFIG.password,
         username: APP_CONFIG.userName,
         // autoLoadEntities: true,
-        entities: [AuditLog],
+        entities: [LocationAndSegmentation],
         database: APP_CONFIG.database,
         synchronize: true,
         logging: true,

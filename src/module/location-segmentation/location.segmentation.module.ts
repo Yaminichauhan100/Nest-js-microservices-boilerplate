@@ -5,21 +5,26 @@ import { APP_CONFIG } from 'src/common/constant';
 import { LoggerModule } from 'src/logger/logger.module';
 import { DatabaseModule } from 'src/database/database.module';
 import { LoggingInterceptor } from 'src/interceptor/logging.interceptor';
-import { AuditLogController } from './audit.log.controller';
-import { AuditLog } from 'src/entity/audit.log.entity';
-import { AuditLogService } from './audit.log.service';
+import { LocationAndSegmentationService } from './location.segmentation.service';
+import { LocationAndSegmentationController } from './location.segmentation.controller';
+import { LocationAndSegmentation } from 'src/entity/location.segmentation.entity';
 
 @Module({
   imports: [
     DatabaseModule,
-    DatabaseModule.forFeature([AuditLog]),
+    DatabaseModule.forFeature([LocationAndSegmentation]),
     JwtModule.register({
       secret: APP_CONFIG.secret,
       signOptions: { expiresIn: APP_CONFIG.expires },
     }),
     LoggerModule,
   ],
-  controllers: [AuditLogController],
-  providers: [AuditLogService, ResponseHandler, Logger, LoggingInterceptor],
+  controllers: [LocationAndSegmentationController],
+  providers: [
+    LocationAndSegmentationService,
+    ResponseHandler,
+    Logger,
+    LoggingInterceptor,
+  ],
 })
-export class AuditLogModule {}
+export class LocationAndSegmentationModule {}
