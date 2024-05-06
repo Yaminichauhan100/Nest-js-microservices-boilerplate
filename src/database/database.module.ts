@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { EntityClassOrSchema } from '@nestjs/typeorm/dist/interfaces/entity-class-or-schema.type';
 import { APP_CONFIG } from 'src/common/constant';
-import { UserDetails } from 'src/entity/user.entity';
+import { AuditLog } from 'src/entity/audit.log.entity';
 
 @Module({
   imports: [
@@ -13,7 +13,8 @@ import { UserDetails } from 'src/entity/user.entity';
         port: 5432,
         password: APP_CONFIG.password,
         username: APP_CONFIG.userName,
-        autoLoadEntities: true,
+        // autoLoadEntities: true,
+        entities: [AuditLog],
         database: APP_CONFIG.database,
         synchronize: true,
         logging: true,

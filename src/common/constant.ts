@@ -1,11 +1,14 @@
 import * as dotenv from 'dotenv';
-import { HttpStatus } from '@nestjs/common';
+
 dotenv.config();
+
+import { HttpStatus } from '@nestjs/common';
 
 export const RESPONSE_MSG = {
   SUCCESS: 'Success.',
   ERROR: 'Something went wrong.',
 };
+
 export const RESPONSE_DATA = {
   SUCCESS: {
     statusCode: HttpStatus.OK,
@@ -18,9 +21,6 @@ export const RESPONSE_DATA = {
 };
 export const LOGGER_NAME = {
   LOGGER: 'LOGGER',
-};
-export const CONSTANT = {
-  API_VERSION: 'v1',
 };
 
 export const STATUS_MSG = {
@@ -53,4 +53,7 @@ export const APP_CONFIG = {
   mongo_url: process.env.MONGO_URL,
   secret: process.env.JWT_SECRET,
   expires: process.env.JWT_EXPIRATION,
+};
+export const CONSTANT = {
+  API_VERSION: 'v1',
 };
