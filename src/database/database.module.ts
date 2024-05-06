@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { EntityClassOrSchema } from '@nestjs/typeorm/dist/interfaces/entity-class-or-schema.type';
 import { APP_CONFIG } from 'src/common/constant';
-import { Marketing } from 'src/entity/marketing.entity';
+import { Membership } from 'src/entity/membership.entity';
 
 @Module({
   imports: [
@@ -14,7 +14,7 @@ import { Marketing } from 'src/entity/marketing.entity';
         password: APP_CONFIG.password,
         username: APP_CONFIG.userName,
         // autoLoadEntities: true,
-        entities: [Marketing],
+        entities: [Membership],
         database: APP_CONFIG.database,
         synchronize: true,
         logging: true,

@@ -5,21 +5,21 @@ import { APP_CONFIG } from 'src/common/constant';
 import { LoggerModule } from 'src/logger/logger.module';
 import { DatabaseModule } from 'src/database/database.module';
 import { LoggingInterceptor } from 'src/interceptor/logging.interceptor';
-import { MarketingService } from './marketing.service';
-import { MarketingController } from './marketing.controller';
-import { Marketing } from 'src/entity/marketing.entity';
+import { Membership } from 'src/entity/membership.entity';
+import { MembershipController } from './membership.controller';
+import { MembershipService } from './membership.service';
 
 @Module({
   imports: [
     DatabaseModule,
-    DatabaseModule.forFeature([Marketing]),
+    DatabaseModule.forFeature([Membership]),
     JwtModule.register({
       secret: APP_CONFIG.secret,
       signOptions: { expiresIn: APP_CONFIG.expires },
     }),
     LoggerModule,
   ],
-  controllers: [MarketingController],
-  providers: [MarketingService, ResponseHandler, Logger, LoggingInterceptor],
+  controllers: [MembershipController],
+  providers: [MembershipService, ResponseHandler, Logger, LoggingInterceptor],
 })
-export class MarketingModule {}
+export class MembershipModule {}
